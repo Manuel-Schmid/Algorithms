@@ -25,7 +25,7 @@ function fibonacci(limit) {
 
 fib(99)
 
-// fibonacci sequence but in recursive ^^
+// fibonacci sequence (again)
 function fib(limit) {
     let fibseq = []
     fibseq[0] = fibseq[1] = 1
