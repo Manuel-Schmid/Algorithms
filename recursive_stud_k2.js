@@ -60,31 +60,6 @@ function call(list) {
     if (secondHalf.length > 0) call(secondHalf)
 }
 
-
-// routeTracking({x: 1, y: 1}, {x: 5, y: 7})
-
-function routeTracking(A, B) {
-    if (A.x-1 === B.x && A.y-1 === B.y) { logPoints(A,B); return }
-    if (A.x-1 === B.x && A.y === B.y) { logPoints(A,B); return }
-    if (A.x-1 === B.x && A.y+1 === B.y) { logPoints(A,B); return }
-    if (A.x === B.x && A.y-1 === B.y) { logPoints(A,B); return }
-    if (A.x === B.x && A.y+1 === B.y) { logPoints(A,B); return }
-    if (A.x+1 === B.x && A.y-1 === B.y) { logPoints(A,B); return }
-    if (A.x+1 === B.x && A.y === B.y) { logPoints(A,B); return }
-    if (A.x+1 === B.x && A.y+1 === B.y) { logPoints(A,B); return }
-    const C = getCenterPoint(A, B)
-    routeTracking(A, C)
-    routeTracking(C, B)
-}
-
-function logPoints(A, B) {
-    console.log("A: " + A.x + "|" + A.y + " B: " + B.x + "|" + B.y)
-}
-function getCenterPoint(A,B) {
-    return {x: Math.round((A.x + B.x)/2), y: Math.round((A.y + B.y)/2)}
-}
-
-
 // ggT(21, 14)
 
 function ggT(a, b) {
