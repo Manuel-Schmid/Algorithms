@@ -7,20 +7,10 @@ const BLUE = "\u001B[34m";
 const PURPLE = "\u001B[35m";
 const CYAN = "\u001B[36m";
 
-let fieldList = [
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0]
-]
+let n = 0
+let fieldList = []
 
-function changeFieldListSize(x, y) {
+function createFieldList(x, y) {
     let fList = []
     for (let i = 0; i <= y; i++) {
         fList.push([])
@@ -31,11 +21,23 @@ function changeFieldListSize(x, y) {
     fieldList = fList
 }
 
-changeFieldListSize(9,12)
-routeTracking({x: 0, y: 1}, {x: 4, y: 11})
-printGrid()
+// -- ULTIMATE SETTINGS-MENU -- //
+initiateTracking(
+    16, // length (x-axis)
+    20, // width (y-axis)
+    {x: 1, y: 2}, // Point A coordinates
+    {x: 15, y: 16} // Point B coordinates
+)
+
+function initiateTracking(x, y, A, B) {
+    createFieldList(x,y)
+    routeTracking(A, B)
+    logPoints(A, B, true)
+    printGrid()
+}
 
 function routeTracking(A, B) {
+    if (A.x === B.x && A.y === B.y) { highlight(A); return }
     if (A.x-1 === B.x && A.y-1 === B.y) { logPoints(A,B); return }
     if (A.x-1 === B.x && A.y === B.y) { logPoints(A,B); return }
     if (A.x-1 === B.x && A.y+1 === B.y) { logPoints(A,B); return }
@@ -49,13 +51,14 @@ function routeTracking(A, B) {
     routeTracking(C, B)
 }
 
-function logPoints(A, B) {
-    highlight(A)
-    highlight(B)
+function logPoints(A, B, isOriginal=false) {
+    highlight(A, isOriginal)
+    highlight(B, isOriginal)
 }
 
-function highlight(P) {
-    let row = fieldList[P.x][P.y] = "1"
+function highlight(P, isOriginal) {
+    if (isOriginal) fieldList[P.y][P.x] = 2 // mark isOriginal points
+    else fieldList[P.y][P.x] = 1 // mark waypoints
 }
 
 function printGrid() {
@@ -63,13 +66,13 @@ function printGrid() {
         let row = fieldList[i];
         let rowNums = CYAN
         for(let j = 0; j < row.length; j++) {
-            if (fieldList[i][j] === 0) {
-                rowNums += j.toString().padStart(2, '0')
-                    + "|"
-                    + (i).toString().padStart(2, '0')
-                    + ", "
-            }
-            else rowNums += RED + "X-X-X, " + CYAN
+            if (fieldList[i][j] === 2) rowNums += YELLOW
+            else if ((fieldList[i][j] === 1)) rowNums += RED
+            rowNums += j.toString().padStart(2, '0')
+                + "|"
+                + (i).toString().padStart(2, '0')
+                + ", "
+            if (fieldList[i][j] !== 0) rowNums += CYAN
         }
         console.log(rowNums)
     }
