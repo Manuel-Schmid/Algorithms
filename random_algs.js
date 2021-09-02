@@ -1,6 +1,6 @@
 // palindrome checker (Otto, Anna usw.)
 
-console.log(isPalindrome('TENET'))
+// console.log(isPalindrome('TENET'))
 
 function isPalindrome(word) {
     word = word.replace(/\s/g, "").toLowerCase()
@@ -13,4 +13,19 @@ function isPalindrome(word) {
     s = s.split("").reverse().join("")
 
     return f === s
+}
+
+CollatzConjecture(100, 100)
+
+function CollatzConjecture(n, counter) {
+    if (counter <= 0) return
+    else counter--
+    let num
+    isEven(n) ? num = n / 2 : num = n * 3 + 1
+    console.log(num)
+    CollatzConjecture(num, counter)
+}
+
+function isEven(num) {
+    return num % 2 === 0
 }
