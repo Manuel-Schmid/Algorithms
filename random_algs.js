@@ -49,6 +49,8 @@ function pascalTriangle(rows) {
     }
 }
 
+console.log(getAllPrimesInRange(100))
+
 function isPrimeNumber(num) {
     if (num <= 1 || (num % 2 === 0 && num > 2)) {
         return false;
@@ -62,3 +64,12 @@ function isPrimeNumber(num) {
     return true;
 }
 
+function getAllPrimesInRange(limit) {
+    let result = [];
+    for (let num = 0; num <= limit; num++) {
+        if (isPrimeNumber(num)) {
+            result.push(num);
+        }
+    }
+    return result;
+}
