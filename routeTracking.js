@@ -7,7 +7,6 @@ const BLUE = "\u001B[34m";
 const PURPLE = "\u001B[35m";
 const CYAN = "\u001B[36m";
 
-let n = 0
 let fieldList = []
 
 function createFieldList(x, y) {
