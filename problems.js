@@ -29,9 +29,10 @@ function spinWords(string) {
 * aug : (inhabitants coming or leaving each year)
 * p : (population to surpass)
  */
-console.log(nb_year(1000, 2, 50, 1200))
-console.log(nb_year(1500, 5, 100, 5000))
-console.log(nb_year(1500000, 2.5, 10000, 2000000))
+
+// console.log(nb_year(1000, 2, 50, 1200))
+// console.log(nb_year(1500, 5, 100, 5000))
+// console.log(nb_year(1500000, 2.5, 10000, 2000000))
 
 function nb_year(p0, percent, aug, p) {
     let curP = p0;
@@ -42,4 +43,20 @@ function nb_year(p0, percent, aug, p) {
         // console.log(years + ": " + curP)
     }
     return years;
+}
+
+/*
+* Simple, given a string of words, return the length of the shortest word(s).
+* String will never be empty and you do not need to account for different data types.
+* */
+
+console.log(shortestWord('why does thine kin ceaselessly assume the worst possible outcome'))
+
+function shortestWord(wordsString) {
+    const words = wordsString.split(' ')
+    let shortestLength = wordsString.length
+    for (let word of words) {
+        if (word.length < shortestLength) shortestLength = word.length
+    }
+    return shortestLength
 }
