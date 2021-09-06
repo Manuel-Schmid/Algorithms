@@ -165,13 +165,16 @@ function concatenateSquaredDigits(number) {
 console.log(decimalToOtherSystem(267, 2)) // decimal - binary
 console.log(decimalToOtherSystem(39, 2)) // decimal - binary
 console.log(decimalToOtherSystem(392, 13)) // decimal - 13er-system
+console.log(decimalToOtherSystem(1001, 16)) // decimal - hex
+console.log(decimalToOtherSystem(734, 16)) // decimal - hex
 
 function decimalToOtherSystem(num, system) {
     let quotient = num
-    let binary = []
+    let converted = []
     while (quotient > 0) {
-        binary.push(quotient % system)
+        if (system !== 16) converted.push(quotient % system)
+        else converted.push(((quotient % system).toString(16).toUpperCase()))
         quotient = Math.floor(quotient / system)
     }
-    return parseInt(binary.reverse().join(''))
+    return converted.reverse().join('')
 }
