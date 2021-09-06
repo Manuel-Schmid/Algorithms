@@ -81,13 +81,13 @@ likes ["Alex", "Jacob", "Mark", "Max"] -- must be "Alex, Jacob and 2 others like
 *
 * For 4 or more names, the number in and 2 others simply increases.
 * */
-
+/*
 console.log(likes([]))
 console.log(likes(["Peter"]))
 console.log(likes(["Jacob", "Alex"]))
 console.log(likes(["Max", "John", "Mark"]))
 console.log(likes(["Alex", "Jacob", "Mark", "Max"]))
-
+*/
 function likes(people) {
     if (people.length <= 0) return "no one likes this"
     else if (people.length === 1) return people[0] + " likes this"
@@ -95,3 +95,46 @@ function likes(people) {
     else if (people.length === 3) return people[0] + ", " + people[1] + " and " + people[2] + " like this"
     else if (people.length >= 4) return people[0] + ", " + people[1] + " and " + (people.length-2) + " others like this"
 }
+
+
+/* ***************************************************************************************** */
+
+/*
+* A Narcissistic Number is a positive number which is the sum of its own digits,
+* each raised to the power of the number of digits in a given base.
+* In this Kata, we will restrict ourselves to decimal (base 10).
+
+*  For example, take 153 (3 digits), which is narcisstic:
+*  1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153
+*
+*  and 1652 (4 digits), which isn't:
+*  1^4 + 6^4 + 5^4 + 2^4 = 1 + 1296 + 625 + 16 = 1938
+*
+*
+* The Challenge:
+
+* Your code must return true or false depending upon whether
+* the given number is a Narcissistic number in base 10.
+* */
+
+// console.log(isNarcissisticNumber(153))
+// console.log(isNarcissisticNumber(1652))
+// console.log(calcNarcissisticNumbersInRange(500))
+
+function isNarcissisticNumber(number) {
+    const digits = number.toString().length
+    let result = 0;
+    for (let i = 0; i < digits; i++) {
+        result += Math.pow(parseInt(number.toString()[i]), digits)
+    }
+    return result === number
+}
+
+function calcNarcissisticNumbersInRange(range) {
+    let narcissisticNumbers = []
+    for (let i = 0; i <= range; i++) {
+        if (isNarcissisticNumber(i)) narcissisticNumbers.push(i)
+    }
+    return narcissisticNumbers
+}
+
