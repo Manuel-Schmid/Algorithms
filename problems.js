@@ -162,15 +162,16 @@ function concatenateSquaredDigits(number) {
 * Function to parse a positive decimal integer it's equivalent in binary
 * */
 
-console.log(decimalToBinary(267))
-console.log(decimalToBinary(39))
+console.log(decimalToOtherSystem(267, 2)) // decimal - binary
+console.log(decimalToOtherSystem(39, 2)) // decimal - binary
+console.log(decimalToOtherSystem(392, 13)) // decimal - 13er-system
 
-function decimalToBinary(num) {
+function decimalToOtherSystem(num, system) {
     let quotient = num
     let binary = []
     while (quotient > 0) {
-        binary.push(quotient % 2)
-        quotient = Math.floor(quotient / 2)
+        binary.push(quotient % system)
+        quotient = Math.floor(quotient / system)
     }
-    return binary.reverse().join('')
+    return parseInt(binary.reverse().join(''))
 }
