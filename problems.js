@@ -146,7 +146,7 @@ function calcNarcissisticNumbersInRange(range) {
 * For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1.
 * */
 
-console.log(concatenateSquaredDigits(9119))
+// console.log(concatenateSquaredDigits(9119))
 
 function concatenateSquaredDigits(number) {
     let result = '';
@@ -158,3 +158,19 @@ function concatenateSquaredDigits(number) {
 
 /* ***************************************************************************************** */
 
+/*
+* Function to parse a positive decimal integer it's equivalent in binary
+* */
+
+console.log(decimalToBinary(267))
+console.log(decimalToBinary(39))
+
+function decimalToBinary(num) {
+    let quotient = num
+    let binary = []
+    while (quotient > 0) {
+        binary.push(quotient % 2)
+        quotient = Math.floor(quotient / 2)
+    }
+    return binary.reverse().join('')
+}
