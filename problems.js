@@ -162,11 +162,11 @@ function concatenateSquaredDigits(number) {
 * Function to parse a positive decimal integer it's equivalent in binary
 * */
 
-console.log(decimalToOtherSystem(267, 2)) // decimal - binary
-console.log(decimalToOtherSystem(39, 2)) // decimal - binary
-console.log(decimalToOtherSystem(392, 13)) // decimal - 13er-system
-console.log(decimalToOtherSystem(1001, 16)) // decimal - hex
-console.log(decimalToOtherSystem(734, 16)) // decimal - hex
+// console.log(decimalToOtherSystem(267, 2)) // decimal - binary
+// console.log(decimalToOtherSystem(39, 2)) // decimal - binary
+// console.log(decimalToOtherSystem(392, 13)) // decimal - 13er-system
+// console.log(decimalToOtherSystem(1001, 16)) // decimal - hex
+// console.log(decimalToOtherSystem(734, 16)) // decimal - hex
 
 function decimalToOtherSystem(num, system) {
     let quotient = num
@@ -178,3 +178,34 @@ function decimalToOtherSystem(num, system) {
     }
     return converted.reverse().join('')
 }
+
+
+/* ***************************************************************************************** */
+/*
+* Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
+
+Example
+"abcde" -> 0 # no characters repeats more than once
+"aabbcde" -> 2 # 'a' and 'b'
+"aabBcde" -> 2 # 'a' occurs twice and 'b' twice (`b` and `B`)
+"indivisibility" -> 1 # 'i' occurs six times
+"Indivisibilities" -> 2 # 'i' occurs seven times and 's' occurs twice
+"aA11" -> 2 # 'a' and '1'
+"ABBA" -> 2 # 'A' and 'B' each occur twice
+* */
+
+console.log(duplicateCount('abcde'))
+console.log(duplicateCount('aabbcde'))
+console.log(duplicateCount('aabBcde'))
+// console.log(duplicateCount('indivisibility'))
+// console.log(duplicateCount('Indivisibilities'))
+
+function duplicateCount(text) {
+    let arr = text.toLowerCase().split('')
+    const toFindDuplicates = arr => arr.filter((item, index) => arr.indexOf(item) !== index)
+    return toFindDuplicates(arr).length
+}
+
+
+
+
