@@ -37,14 +37,14 @@ function initiateTracking(x, y, A, B) {
 
 function routeTracking(A, B) {
     if (A.x === B.x && A.y === B.y) { highlight(A); return }
-    if (A.x-1 === B.x && A.y-1 === B.y) { logPoints(A,B); return }
-    if (A.x-1 === B.x && A.y === B.y) { logPoints(A,B); return }
-    if (A.x-1 === B.x && A.y+1 === B.y) { logPoints(A,B); return }
-    if (A.x === B.x && A.y-1 === B.y) { logPoints(A,B); return }
-    if (A.x === B.x && A.y+1 === B.y) { logPoints(A,B); return }
-    if (A.x+1 === B.x && A.y-1 === B.y) { logPoints(A,B); return }
-    if (A.x+1 === B.x && A.y === B.y) { logPoints(A,B); return }
-    if (A.x+1 === B.x && A.y+1 === B.y) { logPoints(A,B); return }
+    else if (A.x-1 === B.x && A.y-1 === B.y) { logPoints(A,B); return }
+    else if (A.x-1 === B.x && A.y === B.y) { logPoints(A,B); return }
+    else if (A.x-1 === B.x && A.y+1 === B.y) { logPoints(A,B); return }
+    else if (A.x === B.x && A.y-1 === B.y) { logPoints(A,B); return }
+    else if (A.x === B.x && A.y+1 === B.y) { logPoints(A,B); return }
+    else if (A.x+1 === B.x && A.y-1 === B.y) { logPoints(A,B); return }
+    else if (A.x+1 === B.x && A.y === B.y) { logPoints(A,B); return }
+    else if (A.x+1 === B.x && A.y+1 === B.y) { logPoints(A,B); return }
     const C = getCenterPoint(A, B)
     routeTracking(A, C)
     routeTracking(C, B)

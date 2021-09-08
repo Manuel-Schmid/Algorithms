@@ -30,25 +30,6 @@ function isEven(num) {
     return num % 2 === 0
 }
 
-// pascalTriangle(6)
-
-function pascalTriangle(rows) {
-    let pTriangle = new Array(rows)
-    for (let i = 0; i < rows; i++) {
-        let row = new Array(i + 1)
-        row[0] = 1;
-        row[row.length - 1] = 1;
-        for (let j = 1; j < row.length - 1; j++) {
-            let prevRow = pTriangle[i-1]
-            row[j] = prevRow[j] + prevRow[j - 1];
-        }
-        pTriangle[i] = row;
-    }
-    for (let row of pTriangle) {
-        console.log(row)
-    }
-}
-
 console.log(getAllPrimesInRange(100))
 
 function isPrimeNumber(num) {

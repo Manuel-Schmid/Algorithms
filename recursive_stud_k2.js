@@ -63,7 +63,33 @@ function call(list) {
 // ggT(21, 14)
 
 function ggT(a, b) {
-    if (a > b) ggT(a-b, b)
+    if (a === b) console.log(a)
+    else if (a > b) ggT(a-b, b)
     else if (b > a) ggT(a, b-a)
-    else if (a === b) console.log(a)
+}
+
+// pascalTriangle(6)
+
+function pascalTriangle(rows) { // non-recursive approach
+    let pTriangle = new Array(rows)
+    for (let i = 0; i < rows; i++) {
+        let row = new Array(i + 1)
+        row[0] = 1;
+        row[row.length - 1] = 1;
+        for (let j = 1; j < row.length - 1; j++) {
+            let prevRow = pTriangle[i-1]
+            row[j] = prevRow[j] + prevRow[j - 1];
+        }
+        pTriangle[i] = row;
+    }
+    for (let row of pTriangle) {
+        console.log(row)
+    }
+}
+
+console.log(pascalTriangleRec(10,5))
+
+function pascalTriangleRec(i,j) {
+    if (i === 0 && j === 0 || j === 0 || j === i) return 1
+    return pascalTriangleRec(i - 1, j - 1) + pascalTriangleRec(i - 1, j)
 }
