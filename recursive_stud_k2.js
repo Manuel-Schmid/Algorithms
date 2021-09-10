@@ -68,7 +68,7 @@ function ggT(a, b) {
     else if (b > a) ggT(a, b-a)
 }
 
-// pascalTriangle(6)
+pascalTriangle(6)
 
 function pascalTriangle(rows) { // non-recursive approach
     let pTriangle = new Array(rows)
@@ -87,7 +87,7 @@ function pascalTriangle(rows) { // non-recursive approach
     }
 }
 
-console.log(pascalTriangleRec(10,5))
+// console.log(pascalTriangleRec(10,5))
 
 function pascalTriangleRec(i,j) {
     if (i === 0 && j === 0 || j === 0 || j === i) return 1

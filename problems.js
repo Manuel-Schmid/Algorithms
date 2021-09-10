@@ -194,9 +194,9 @@ Example
 "ABBA" -> 2 # 'A' and 'B' each occur twice
 * */
 
-console.log(duplicateCount('abcde'))
-console.log(duplicateCount('aabbcde'))
-console.log(duplicateCount('aabBcde'))
+// console.log(duplicateCount('abcde'))
+// console.log(duplicateCount('aabbcde'))
+// console.log(duplicateCount('aabBcde'))
 // console.log(duplicateCount('indivisibility'))
 // console.log(duplicateCount('Indivisibilities'))
 
@@ -207,5 +207,19 @@ function duplicateCount(text) {
 }
 
 
+/* ***************************************************************************************** */
 
+/*
+* Write a function that accepts two arguments: an array/list of integers and another integer (n).
+
+Determine the number of times where two integers in the array have a difference of n.
+* */
+
+intDiff([1, 1, 5, 6, 9, 16, 27], 4) // 3
+intDiff([1, 1, 3, 3], 2) // 4
+const intDiff = (arr, n) => {
+    for (let i of arr) {
+
+    }
+}
 
