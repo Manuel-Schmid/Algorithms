@@ -215,8 +215,8 @@ function duplicateCount(text) {
 Determine the number of times where two integers in the array have a difference of n.
 * */
 
-console.log(intDiff([1, 1, 5, 6, 9, 16, 27], 4)) // 3
-console.log(intDiff([1, 1, 3, 3], 2)) // 4
+// console.log(intDiff([1, 1, 5, 6, 9, 16, 27], 4)) // 3
+// console.log(intDiff([1, 1, 3, 3], 2)) // 4
 function intDiff(arr, n) {
     let intDiffsCount = 0
     for (let i = 0; i < arr.length; i++) {
@@ -227,3 +227,21 @@ function intDiff(arr, n) {
     return intDiffsCount
 }
 
+/* ***************************************************************************************** */
+/*
+* In DNA strings, symbols "A" and "T" are complements of each other, as "C" and "G". You have function with one
+* side of the DNA (string); you need to get the other complementary side. DNA strand is
+* never empty or there is no DNA at all.
+*
+* */
+
+console.log(DNAStrand ("ATTGC")) // return "TAACG"
+console.log(DNAStrand ("GTAT")) // return "CATA"
+function DNAStrand(dna){
+    return dna.split('').map(l => {
+        if (l === 'A') return 'T'
+        else if (l === 'T') return 'A'
+        else if (l === 'G') return 'C'
+        else if (l === 'C') return 'G'
+    }).join('')
+}
