@@ -253,9 +253,9 @@ function DNAStrand(dna){
 * the string '(integer) is prime'.
 * */
 
-console.log(divisors(12)); // should return [2,3,4,6]
-console.log(divisors(25)); // should return [5]
-console.log(divisors(13)); // should return "13 is prime"
+// console.log(divisors(12)); // should return [2,3,4,6]
+// console.log(divisors(25)); // should return [5]
+// console.log(divisors(13)); // should return "13 is prime"
 
 function divisors(n) {
     let divisors = []
@@ -264,4 +264,29 @@ function divisors(n) {
     }
     if (divisors.length === 0) return n + ' is prime'
     return divisors
+}
+
+/* ***************************************************************************************** */
+/*
+* Your task is to sort a given string. Each word in the string will contain a single number. This number is
+* the position the word should have in the result.
+*
+Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
+If the input string is empty, return an empty string. The words in the input String will only contain valid
+* consecutive numbers.
+* */
+
+console.log(order("is2 Thi1s T4est 3a")) // -->  "Thi1s is2 3a T4est"
+console.log(order("4of Fo1r pe6ople g3ood th5e the2")) //  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
+console.log(order("")) // -->  ""
+function order(words) {
+    if(words === '') return ''
+    let sentence = []
+    words = words.split(' ')
+    for (let i = 1; i <= words.length; i++) {
+        for (let word of words) {
+            if(word.indexOf(i.toString()) > -1) sentence.push(word)
+        }
+    }
+    return sentence.join(' ')
 }
