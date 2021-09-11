@@ -235,8 +235,8 @@ function intDiff(arr, n) {
 *
 * */
 
-console.log(DNAStrand ("ATTGC")) // return "TAACG"
-console.log(DNAStrand ("GTAT")) // return "CATA"
+// console.log(DNAStrand ("ATTGC")) // return "TAACG"
+// console.log(DNAStrand ("GTAT")) // return "CATA"
 function DNAStrand(dna){
     return dna.split('').map(l => {
         if (l === 'A') return 'T'
@@ -244,4 +244,24 @@ function DNAStrand(dna){
         else if (l === 'G') return 'C'
         else if (l === 'C') return 'G'
     }).join('')
+}
+
+/* ***************************************************************************************** */
+/*
+* Create a function named divisors/Divisors that takes an integer n > 1 and returns an array with all of the
+* integer's divisors(except for 1 and the number itself), from smallest to largest. If the number is prime return
+* the string '(integer) is prime'.
+* */
+
+console.log(divisors(12)); // should return [2,3,4,6]
+console.log(divisors(25)); // should return [5]
+console.log(divisors(13)); // should return "13 is prime"
+
+function divisors(n) {
+    let divisors = []
+    for (let i = 2; i < n; i++) {
+        if (n % i === 0) divisors.push(i)
+    }
+    if (divisors.length === 0) return n + ' is prime'
+    return divisors
 }
