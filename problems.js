@@ -276,9 +276,9 @@ If the input string is empty, return an empty string. The words in the input Str
 * consecutive numbers.
 * */
 
-console.log(order("is2 Thi1s T4est 3a")) // -->  "Thi1s is2 3a T4est"
-console.log(order("4of Fo1r pe6ople g3ood th5e the2")) //  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
-console.log(order("")) // -->  ""
+// console.log(order("is2 Thi1s T4est 3a")) // -->  "Thi1s is2 3a T4est"
+// console.log(order("4of Fo1r pe6ople g3ood th5e the2")) //  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
+// console.log(order("")) // -->  ""
 function order(words) {
     if(words === '') return ''
     let sentence = []
@@ -290,3 +290,81 @@ function order(words) {
     }
     return sentence.join(' ')
 }
+
+
+/* *****************************************************************************************
+* Implement the function unique_in_order which takes as argument a sequence and returns a list
+* of items without any elements with the same value next to each other and preserving the original
+* order of elements.
+*
+* remember: sequence can be a string or an array
+* */
+
+console.log(uniqueInOrder('AAAABBBCCDAABBB')) // == ['A', 'B', 'C', 'D', 'A', 'B']
+console.log(uniqueInOrder('ABBCcAD'))         // == ['A', 'B', 'C', 'c', 'A', 'D']
+console.log(uniqueInOrder([1,2,2,3,3]))       // == [1,2,3]
+
+function uniqueInOrder(sequence) {
+    if (sequence.length === 0) return []
+    if(!Array.isArray(sequence)) sequence = sequence.split('')
+    let result = []
+    result.push(sequence[0])
+    for (let i = 1; i < sequence.length; i++) {
+        if (result[result.length-1] !== sequence[i]) result.push(sequence[i])
+    }
+    return result
+}
+
+
+/* *****************************************************************************************
+*
+*
+* */
+
+
+/* *****************************************************************************************
+*
+*
+* */
+
+
+/* *****************************************************************************************
+*
+*
+* */
+
+
+/* *****************************************************************************************
+*
+*
+* */
+
+
+/* *****************************************************************************************
+*
+*
+* */
+
+
+/* *****************************************************************************************
+*
+*
+* */
+
+
+/* *****************************************************************************************
+*
+*
+* */
+
+
+/* *****************************************************************************************
+*
+*
+* */
+
+
+/* *****************************************************************************************
+*
+*
+* */
