@@ -359,13 +359,13 @@ function bouncingBall(h,  bounce,  window) {
   Tower block is represented as *
 * */
 
-console.log(towerBuilder(3))
+// console.log(towerBuilder(3))
 /*
   '  *  ',
   ' *** ',
   '*****'
 * */
-console.log(towerBuilder(6))
+// console.log(towerBuilder(6))
 /*
   '     *     ',
   '    ***    ',
@@ -374,7 +374,7 @@ console.log(towerBuilder(6))
   ' ********* ',
   '***********' // (2 * nFloors) - 1
 * */
-console.log(towerBuilder(10))
+// console.log(towerBuilder(10))
 
 function towerBuilder(nFloors) {
     let tower = []
@@ -387,10 +387,22 @@ function towerBuilder(nFloors) {
 }
 
 /* *****************************************************************************************
-*
-*
+* Your goal in this kata is to implement a difference function, which subtracts one list from
+* another and returns the result.
+
+It should remove all values from list a, which are present in list b keeping their order.
 * */
 
+console.log(arrayDiff([1,2],[1])) // == [2]
+console.log(arrayDiff([1,2,2,2,3],[2])) // == [1,3]
+
+function arrayDiff(a, b) {
+    let res = []
+    for (let item of a) {
+        if (b.indexOf(item) <= -1) res.push(item)
+    }
+    return res
+}
 
 /* *****************************************************************************************
 *
