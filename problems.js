@@ -352,10 +352,39 @@ function bouncingBall(h,  bounce,  window) {
 
 
 /* *****************************************************************************************
-*
-*
+* Build Tower
+  Build Tower by the following given argument:
+  number of floors (integer and always greater than 0).
+
+  Tower block is represented as *
 * */
 
+console.log(towerBuilder(3))
+/*
+  '  *  ',
+  ' *** ',
+  '*****'
+* */
+console.log(towerBuilder(6))
+/*
+  '     *     ',
+  '    ***    ',
+  '   *****   ',
+  '  *******  ',
+  ' ********* ',
+  '***********' // (2 * nFloors) - 1
+* */
+console.log(towerBuilder(10))
+
+function towerBuilder(nFloors) {
+    let tower = []
+    for (let i = 1; i <= nFloors; i++) {
+        const blocks = '*'.repeat((2 * i) - 1)
+        const space = ' '.repeat((((2 * nFloors) - 1) - blocks.length) / 2)
+        tower.push(space + blocks + space)
+    }
+    return tower
+}
 
 /* *****************************************************************************************
 *
