@@ -410,15 +410,15 @@ function arrayDiff(a, b) {
 * If the string is empty the result should be empty object literal, {}.
 * */
 
-console.log(countChars('aba'))
+// console.log(countChars('aba'))
+// console.log(countChars('banana'))
 
-function countChars(string) {
-    let a = string.split("");
-    let obj = {};
-    a.forEach(function(s){
-        obj[s] = (obj[s] || 0) + 1;
-    });
-    return obj;
+function countChars(str) {
+    let obj = {}
+    str.split('').forEach(s => {
+        obj[s] = (obj[s] || 0) + 1
+    })
+    return obj
 }
 
 
