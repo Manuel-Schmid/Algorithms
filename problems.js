@@ -393,8 +393,8 @@ function towerBuilder(nFloors) {
 It should remove all values from list a, which are present in list b keeping their order.
 * */
 
-console.log(arrayDiff([1,2],[1])) // == [2]
-console.log(arrayDiff([1,2,2,2,3],[2])) // == [1,3]
+// console.log(arrayDiff([1,2],[1])) // == [2]
+// console.log(arrayDiff([1,2,2,2,3],[2])) // == [1,3]
 
 function arrayDiff(a, b) {
     let res = []
@@ -405,9 +405,21 @@ function arrayDiff(a, b) {
 }
 
 /* *****************************************************************************************
-*
-*
+*The main idea is to count all the occurring characters in a string.
+* If you have a string like aba, then the result should be {'a': 2, 'b': 1}.
+* If the string is empty the result should be empty object literal, {}.
 * */
+
+console.log(countChars('aba'))
+
+function countChars(string) {
+    let a = string.split("");
+    let obj = {};
+    a.forEach(function(s){
+        obj[s] = (obj[s] || 0) + 1;
+    });
+    return obj;
+}
 
 
 /* *****************************************************************************************
@@ -433,6 +445,31 @@ function arrayDiff(a, b) {
 *
 * */
 
+
+/* *****************************************************************************************
+*
+*
+* */
+
+/* *****************************************************************************************
+*
+*
+* */
+
+/* *****************************************************************************************
+*
+*
+* */
+
+/* *****************************************************************************************
+*
+*
+* */
+
+/* *****************************************************************************************
+*
+*
+* */
 
 /* *****************************************************************************************
 *
