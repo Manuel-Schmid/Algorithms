@@ -463,7 +463,7 @@ grapes
 bananas
 * */
 
-console.log(solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"]))
+// console.log(solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"]))
 // result ==> "apples, pears\ngrapes\nbananas"
 
 function solution(input, markers) {
@@ -478,12 +478,29 @@ function solution(input, markers) {
     })
     return lines.join('\n')
 }
-
+// better solution:
+/*
+function solution(input, markers) {
+  return input.split('\n').map(
+    line => markers.reduce(
+      (line, marker) => line.split(marker)[0].trim(), line
+    )
+  ).join('\n')
+}
+* */
 
 /* *****************************************************************************************
-*
-*
+* Create a function that takes a positive integer and returns the next bigger number that
+* can be formed by rearranging its digits.
+* If the digits can't be rearranged to form a bigger number, return -1 (or nil in Swift):
 * */
+
+
+function arrayRotate(arr, reverse) {
+    if (reverse) arr.unshift(arr.pop());
+    else arr.push(arr.shift());
+    return arr;
+}
 
 
 /* *****************************************************************************************
