@@ -493,20 +493,20 @@ function solution(input, markers) {
 * Create a function that takes a positive integer and returns the next bigger number that
 * can be formed by rearranging its digits.
 * If the digits can't be rearranged to form a bigger number, return -1 (or nil in Swift):
-* *//*
+* */
 console.log(nextBigger(12))   // returns 21
 console.log(nextBigger(513))  // returns 531
 console.log(nextBigger(2017)) // returns 2071
-console.log(nextBigger( 9))   // returns nil
-console.log(nextBigger( 111)) // returns nil
-console.log(nextBigger( 531)) // returns nil
-*/
+console.log(nextBigger( 9))   // returns -1
+console.log(nextBigger( 111)) // returns -1
+console.log(nextBigger( 531)) // returns -1
+
 function nextBigger(num) {
-    const nums = num.toString().split('').map(e => parseInt(e))
-    let n = 0
-    for (let i = 1; i < nums.length; i++) {
-        const rNum = parseInt(arrayRotate(nums, i).join(''))
-        if ((rNum > num) && (n === 0 || rNum < n)) n = rNum
+    const allPossibleMutations = getArrayMutations(num.toString().split('').map(e => parseInt(e)))
+    let n = -1
+    for (let mutation of allPossibleMutations) {
+        const mNum = parseInt(mutation.join(''))
+        if ((mNum > num) && (n === -1 || mNum < n)) n = mNum
     }
     return n
 }
@@ -523,7 +523,7 @@ function arrayRotate(arr, limit, toTheRight=false) {
     return arr;
 }
 
-console.log(getArrayMutations([2,1,3,4]))
+// console.log(getArrayMutations([2,1,3,4]))
 
 function getArrayMutations(arr, perms = [], len = arr.length) {
     if (len === 1) perms.push(arr.slice(0))
