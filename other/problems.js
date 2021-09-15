@@ -495,10 +495,14 @@ function solution(input, markers) {
 * If the digits can't be rearranged to form a bigger number, return -1 (or nil in Swift):
 * */
 
+console.log(arrayRotate([1, 2, 3, 4, 5], 2))    // [2, 3, 4, 5, 1];
+console.log(arrayRotate([1, 2, 3, 4, 5], 2,true))   // [5, 1, 2, 3, 4];
 
-function arrayRotate(arr, reverse) {
-    if (reverse) arr.unshift(arr.pop());
-    else arr.push(arr.shift());
+function arrayRotate(arr, limit, toTheRight=false) {
+    for (let i = 0; i < limit; i++) {
+        if (toTheRight) arr.unshift(arr.pop());
+        else arr.push(arr.shift());
+    }
     return arr;
 }
 
