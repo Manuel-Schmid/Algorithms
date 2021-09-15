@@ -432,9 +432,9 @@ Keep in mind that your task is to help Bob solve a real IQ test, which means ind
 start from 1 (not 0)
 * */
 
-console.log(iqTest("2 4 7 8 10")) // => 3 // Third number is odd, while the rest of the numbers are even
-console.log(iqTest("1 2 1 1")) // => 2 // Second number is even, while the rest of the numbers are odd
-console.log(iqTest("1 2 5 4")) // => 0 // There was no irregular number.
+// console.log(iqTest("2 4 7 8 10")) // => 3 // Third number is odd, while the rest of the numbers are even
+// console.log(iqTest("1 2 1 1")) // => 2 // Second number is even, while the rest of the numbers are odd
+// console.log(iqTest("1 2 5 4")) // => 0 // There was no irregular number.
 
 function iqTest(numbers) {
     let allEvenNumbers = numbers.split(' ').filter(num => num % 2 === 0)
@@ -447,9 +447,37 @@ function iqTest(numbers) {
 }
 
 /* *****************************************************************************************
+* Complete the solution so that it strips all text that follows any of a set of comment markers passed in.
+* Any whitespace at the end of the line should also be stripped out.
 *
+* Example:
 *
+* Given an input string of:
+apples, pears # and bananas
+grapes
+bananas !apples
+
+* The output expected would be:
+apples, pears
+grapes
+bananas
 * */
+
+console.log(solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"]))
+// result ==> "apples, pears\ngrapes\nbananas"
+
+function solution(input, markers) {
+    let lines = input.split('\n').map(e => {
+        const lineArr = e.split('')
+        const indexStop = input.length
+        for (let marker of markers) {
+            const markerIndex = lineArr.indexOf(marker)
+            if(markerIndex > -1 && markerIndex < indexStop) return lineArr.slice(0,markerIndex).join('').trim()
+        }
+        return e.trim()
+    })
+    return lines.join('\n')
+}
 
 
 /* *****************************************************************************************

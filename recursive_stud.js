@@ -36,16 +36,6 @@ function fibs(limit) {
     console.log(fibseq)
 }
 
-// fibonacci but in recursive ^^
-// for (let n = 0; n <= 60; n++) {
-//     console.log(n + ": " + fib(n))
-// }
-
-function fib(n) {
-    if (n === 0 || n === 1)  return 1
-    return fib(n-1) + fib(n-2)
-}
-
 // for (let n = 1; n <= 20; n++) {
 //     console.log(n + ": " + hof(n))
 // }
@@ -54,5 +44,34 @@ function hof(n) {
     if (n === 1 || n === 2) return 1
     return hof(n - hof(n-1)) + hof(n - hof(n-2))
 }
+
+// fibonacci but in recursive
+// for (let n = 0; n <= 30; n++) {
+//     console.log(n + ": " + fib(n))
+// }
+
+function fib(n) {
+    if (n === 0 || n === 1)  return 1
+    return fib(n-1) + fib(n-2)
+}
+
+// fibQuotient(50)
+
+function fibQuotient(limit) {
+    let startT = new Date(Date.now()).getMilliseconds()
+    q(20)
+    console.log("q Time: " + (new Date(Date.now()).getMilliseconds() - startT) + " ms")
+}
+
+function q(limit) {
+    for (let n = 1; n <= limit; n++) {
+        let qp = fib(n) / fib(n-1)
+    }
+}
+
+
+
+
+
 
 
