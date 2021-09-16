@@ -494,12 +494,12 @@ function solution(input, markers) {
 * can be formed by rearranging its digits.
 * If the digits can't be rearranged to form a bigger number, return -1 (or nil in Swift):
 * */
-console.log(nextBigger(12))   // returns 21
-console.log(nextBigger(513))  // returns 531
-console.log(nextBigger(2017)) // returns 2071
-console.log(nextBigger( 9))   // returns -1
-console.log(nextBigger( 111)) // returns -1
-console.log(nextBigger( 531)) // returns -1
+// console.log(nextBigger(12))   // returns 21
+// console.log(nextBigger(513))  // returns 531
+// console.log(nextBigger(2017)) // returns 2071
+// console.log(nextBigger( 9))   // returns -1
+// console.log(nextBigger( 111)) // returns -1
+// console.log(nextBigger( 531)) // returns -1
 
 function nextBigger(num) {
     const allPossibleMutations = getArrayMutations(num.toString().split('').map(e => parseInt(e)))
@@ -509,18 +509,6 @@ function nextBigger(num) {
         if ((mNum > num) && (n === -1 || mNum < n)) n = mNum
     }
     return n
-}
-
-
-// console.log(arrayRotate([1, 2, 3, 4, 5], 2))    // [2, 3, 4, 5, 1];
-// console.log(arrayRotate([1, 2, 3, 4, 5], 2,true))   // [5, 1, 2, 3, 4];
-
-function arrayRotate(arr, limit, toTheRight=false) {
-    for (let i = 0; i < limit; i++) {
-        if (toTheRight) arr.unshift(arr.pop());
-        else arr.push(arr.shift());
-    }
-    return arr;
 }
 
 // console.log(getArrayMutations([2,1,3,4]))
@@ -540,11 +528,29 @@ function getArrayMutations(arr, perms = [], len = arr.length) {
 }
 
 
+// console.log(arrayRotate([1, 2, 3, 4, 5], 2))    // [2, 3, 4, 5, 1];
+// console.log(arrayRotate([1, 2, 3, 4, 5], 2,true))   // [5, 1, 2, 3, 4];
+
+function arrayRotate(arr, limit, toTheRight=false) {
+    for (let i = 0; i < limit; i++) {
+        if (toTheRight) arr.unshift(arr.pop());
+        else arr.push(arr.shift());
+    }
+    return arr;
+}
+
+
 /* *****************************************************************************************
-*
-*
+* create a function that checks, if a two words are anagrams
 * */
 
+console.log(areAnagrams('Anna', 'Anam')) // false
+console.log(areAnagrams('Aurevoir', 'reviorau')) // true
+console.log(areAnagrams('crazer', 'zakrer')) // false
+
+function areAnagrams(word1, word2) {
+    return word1.toLowerCase().split('').sort().join('') === word2.toLowerCase().split('').sort().join('')
+}
 
 /* *****************************************************************************************
 *
