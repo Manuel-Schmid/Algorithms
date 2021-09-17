@@ -556,11 +556,11 @@ function areAnagrams(word1, word2) {
 * Extract the Domain name: Write a function that when given a URL as a string, parses out
 * just the domain name and returns it as a string.
 * */
-console.log(domainName("http://github.com/carbonfive/raygun")) // == "github"
-console.log(domainName("http://www.zombie-bites.com")) // == "zombie-bites"
-console.log(domainName("https://www.cnet.com")) // == "cnet"
-console.log(domainName("http://google.co.jp")) // == "google");)
-console.log(domainName("www.xakep.ru")) // == "xakep")
+// console.log(domainName("http://github.com/carbonfive/raygun")) // == "github"
+// console.log(domainName("http://www.zombie-bites.com")) // == "zombie-bites"
+// console.log(domainName("https://www.cnet.com")) // == "cnet"
+// console.log(domainName("http://google.co.jp")) // == "google");)
+// console.log(domainName("www.xakep.ru")) // == "xakep")
 
 function domainName(url) {
     url = url.replace('https://', '')
@@ -568,10 +568,28 @@ function domainName(url) {
     url = url.replace('www.', '')
     return url.split('.')[0]
 }
+
 /* *****************************************************************************************
+* In this example you have to validate if a user input string is alphanumeric.
+* The given string is not nil/null/NULL/None, so you don't have to check that.
 *
-*
+* The string has the following conditions to be alphanumeric:
+    - At least one character ("" is not valid)
+    - Allowed characters are uppercase / lowercase latin letters and digits from 0 to 9
+    - No whitespaces / underscore
 * */
+console.log(isAlphanumeric('Mazinkaiser')) // true
+console.log(isAlphanumeric('hello world_')) // false
+console.log(isAlphanumeric('PassW0rd')) // true
+console.log(isAlphanumeric('Plus+word')) // false
+console.log(isAlphanumeric('     ')) // false
+
+function isAlphanumeric(str) {
+    return !!str.match(/^[0-9a-zA-Z]+$/); // !! casts the result to a boolean value
+}
+
+
+
 
 /* *****************************************************************************************
 *
