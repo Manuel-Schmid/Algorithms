@@ -563,10 +563,10 @@ console.log(domainName("http://google.co.jp")) // == "google");)
 console.log(domainName("www.xakep.ru")) // == "xakep")
 
 function domainName(url) {
-    url = url.substring(url.indexOf('//') > -1 ? url.indexOf('//') + 2 : 0)
-    url = url.substring(url.indexOf('www.') > -1 ? url.indexOf('www.') + 4 : 0)
-    url = url.substring(0, url.indexOf('.'))
-    return url
+    url = url.replace('https://', '')
+    url = url.replace('http://', '')
+    url = url.replace('www.', '')
+    return url.split('.')[0]
 }
 /* *****************************************************************************************
 *
