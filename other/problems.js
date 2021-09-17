@@ -544,19 +544,30 @@ function arrayRotate(arr, limit, toTheRight=false) {
 * create a function that checks, if a two words are anagrams
 * */
 
-console.log(areAnagrams('Anna', 'Anam')) // false
-console.log(areAnagrams('Aurevoir', 'reviorau')) // true
-console.log(areAnagrams('crazer', 'zakrer')) // false
+// console.log(areAnagrams('Anna', 'Anam')) // false
+// console.log(areAnagrams('Aurevoir', 'reviorau')) // true
+// console.log(areAnagrams('crazer', 'zakrer')) // false
 
 function areAnagrams(word1, word2) {
     return word1.toLowerCase().split('').sort().join('') === word2.toLowerCase().split('').sort().join('')
 }
 
 /* *****************************************************************************************
-*
-*
+* Extract the Domain name: Write a function that when given a URL as a string, parses out
+* just the domain name and returns it as a string.
 * */
+console.log(domainName("http://github.com/carbonfive/raygun")) // == "github"
+console.log(domainName("http://www.zombie-bites.com")) // == "zombie-bites"
+console.log(domainName("https://www.cnet.com")) // == "cnet"
+console.log(domainName("http://google.co.jp")) // == "google");)
+console.log(domainName("www.xakep.ru")) // == "xakep")
 
+function domainName(url) {
+    url = url.substring(url.indexOf('//') > -1 ? url.indexOf('//') + 2 : 0)
+    url = url.substring(url.indexOf('www.') > -1 ? url.indexOf('www.') + 4 : 0)
+    url = url.substring(0, url.indexOf('.'))
+    return url
+}
 /* *****************************************************************************************
 *
 *
