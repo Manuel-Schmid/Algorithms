@@ -578,23 +578,36 @@ function domainName(url) {
     - Allowed characters are uppercase / lowercase latin letters and digits from 0 to 9
     - No whitespaces / underscore
 * */
-console.log(isAlphanumeric('Mazinkaiser')) // true
-console.log(isAlphanumeric('hello world_')) // false
-console.log(isAlphanumeric('PassW0rd')) // true
-console.log(isAlphanumeric('Plus+word')) // false
-console.log(isAlphanumeric('     ')) // false
+// console.log(isAlphanumeric('Mazinkaiser')) // true
+// console.log(isAlphanumeric('hello world_')) // false
+// console.log(isAlphanumeric('PassW0rd')) // true
+// console.log(isAlphanumeric('Plus+word')) // false
+// console.log(isAlphanumeric('     ')) // false
 
 function isAlphanumeric(str) {
     return !!str.match(/^[0-9a-zA-Z]+$/); // !! casts the result to a boolean value
 }
 
 
-
-
 /* *****************************************************************************************
-*
-*
+* Valid parantheses
+* Write a function that takes a string of parentheses, and determines if the order of the parentheses
+* is valid. The function should return true if the string is valid, and false if it's invalid.
 * */
+
+console.log(validParentheses("()")) // =>  true
+console.log(validParentheses(")(()))")) // =>  false
+console.log(validParentheses("("))// =>  false
+console.log(validParentheses("(())((()())())")) // =>  true
+
+function validParentheses(parens){
+        let index = 0
+        while (index > -1) {
+            parens = parens.replace('()', '')
+            index = parens.indexOf('()')
+        }
+        return parens === ''
+}
 
 /* *****************************************************************************************
 *
