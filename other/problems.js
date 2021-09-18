@@ -610,16 +610,21 @@ function validParentheses(parens){
 }
 
 /* *****************************************************************************************
-* Factorial algorithm (iterative)
+* Factorial algorithm
 * */
-const factorial = number => {
-    let product = 1;
+const factorialIterative = number => {
+    let product = 1
     for (let i = 2; i <= number; i++) {
-        product *= i;
+        product *= i
     }
-    return product;
-};
-console.log(factorial(6))
+    return product
+}
+// console.log(factorialIterative(6))
+
+const factorialRecursive = number => {
+    return number < 2 ? 1 : number * factorialRecursive(number - 1)
+}
+// console.log(factorialRecursive(6))
 
 
 /* *****************************************************************************************
