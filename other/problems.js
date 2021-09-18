@@ -595,24 +595,32 @@ function isAlphanumeric(str) {
 * is valid. The function should return true if the string is valid, and false if it's invalid.
 * */
 
-console.log(validParentheses("()")) // =>  true
-console.log(validParentheses(")(()))")) // =>  false
-console.log(validParentheses("("))// =>  false
-console.log(validParentheses("(())((()())())")) // =>  true
+// console.log(validParentheses("()")) // =>  true
+// console.log(validParentheses(")(()))")) // =>  false
+// console.log(validParentheses("("))// =>  false
+// console.log(validParentheses("(())((()())())")) // =>  true
 
 function validParentheses(parens){
-        let index = 0
-        while (index > -1) {
-            parens = parens.replace('()', '')
-            index = parens.indexOf('()')
-        }
-        return parens === ''
+    let index = 0
+    while (index > -1) {
+        parens = parens.replace('()', '')
+        index = parens.indexOf('()')
+    }
+    return parens === ''
 }
 
 /* *****************************************************************************************
-*
-*
+* Factorial algorithm (iterative)
 * */
+const factorial = number => {
+    let product = 1;
+    for (let i = 2; i <= number; i++) {
+        product *= i;
+    }
+    return product;
+};
+console.log(factorial(6))
+
 
 /* *****************************************************************************************
 *
