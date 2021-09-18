@@ -629,15 +629,22 @@ const factorialRecursive = number => {
 
 /* *****************************************************************************************
 * Given a string of characters as input, write a function that returns it with the characters reversed.
+* Also write a function to do the same with an integer value
 * */
-console.log(reverseString('Fortes'))
-console.log(reverseString('Fortuna'))
-console.log(reverseString('Adiuvat'))
+// console.log(reverseString('Fortes'))
+// console.log(reverseString('Fortuna'))
+// console.log(reverseString('Adiuvat'))
+// console.log(reverseString('2021'))
+// console.log(reverseString('8077'))
+// console.log(reverseString('911'))
 
 function reverseString(str) {
     return str.split('').reverse().join('')
 }
 
+function reverseInt(int) {
+    return parseInt(reverseString(int.toString()))
+}
 
 /* *****************************************************************************************
 *
