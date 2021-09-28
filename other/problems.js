@@ -671,9 +671,9 @@ X can be placed before L (50) and C (100) to make 40 and 90.
 C can be placed before D (500) and M (1000) to make 400 and 900.
 Given a roman numeral, convert it to an integer.
 * */
-console.log(romanToInt("MMXXI")) // -> 2021
-console.log(romanToInt("IX")) // -> 9
-console.log(romanToInt("XIV")) // -> 14
+// console.log(romanToInt("MMXXI")) // -> 2021
+// console.log(romanToInt("IX")) // -> 9
+// console.log(romanToInt("XIV")) // -> 14
 
 function romanToInt(s) {
     let result = 0;
