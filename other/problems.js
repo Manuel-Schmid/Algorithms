@@ -146,13 +146,20 @@ function calcNarcissisticNumbersInRange(range) {
 * For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1.
 * */
 
-// console.log(concatenateSquaredDigits(9119))
+console.log(concatenateSquaredDigits2(9119)) // => 811181
 
 function concatenateSquaredDigits(number) {
     let result = '';
     for (let i = 0; i < number.toString().length; i++) {
         result += Math.pow(parseInt(number.toString()[i]), 2)
     }
+    return parseInt(result);
+}
+
+function concatenateSquaredDigits2(number) { // different approach
+    let result = number.toString().split('').map((digit) => {
+        return Math.pow(parseInt(digit), 2)
+    }).join('')
     return parseInt(result);
 }
 
