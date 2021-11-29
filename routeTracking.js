@@ -25,7 +25,7 @@ initiateTracking(
     16, // length (x-axis)
     20, // width (y-axis)
     {x: 1, y: 2}, // Point A coordinates
-    {x: 15, y: 16} // Point B coordinates
+    {x: 11, y: 18} // Point B coordinates
 )
 
 function initiateTracking(x, y, A, B) {
