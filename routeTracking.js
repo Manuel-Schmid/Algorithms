@@ -20,12 +20,12 @@ function createFieldList(x, y) {
     fieldList = fList
 }
 
-// -- ULTIMATE SETTINGS-MENU -- //
+
 initiateTracking(
     16, // length (x-axis)
     20, // width (y-axis)
     {x: 1, y: 2}, // Point A coordinates
-    {x: 11, y: 18} // Point B coordinates
+    {x: 13, y: 9} // Point B coordinates
 )
 
 function initiateTracking(x, y, A, B) {

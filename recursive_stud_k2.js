@@ -50,6 +50,7 @@ const callList = [ // 84
 
 function call(list) {
     console.log(n++ + " - " + list[0] + ' got a call.')
+
     if (list.length === 1) return
 
     list.splice(0, 1)
@@ -84,14 +85,22 @@ function pascalTriangle(rows) { // non-recursive approach
     }
     for (let row of pTriangle) {
         let nums = row.join(' ')
-        // let spaces = ' '.repeat((pTriangle[pTriangle.length-1].join(' ').length - nums.length)/2 || 0)
-        console.log(nums)
+        let spaces = ' '.repeat((pTriangle[pTriangle.length-1].join(' ').length - nums.length)/2 || 0)
+        console.log(spaces + nums)
     }
 }
 
-// console.log(pascalTriangleRec(4,2))
+// console.log(pascalTriangleRec(7,4))
 
-function pascalTriangleRec(zeile,spalte) {
-    if (zeile === 0 && spalte === 0 || spalte === 0 || spalte === zeile) return 1
-    return pascalTriangleRec(zeile - 1, spalte - 1) + pascalTriangleRec(zeile - 1, spalte)
+function pascalTriangleRec(row,column) {
+    if (column === 0 || column === row) return 1 // rekursionsbasis
+    return pascalTriangleRec(row - 1, column - 1) + pascalTriangleRec(row - 1, column) // Rekursionsvorschrift
+}
+
+// Fakultät
+console.log(faculty(8))
+
+function faculty(num) {
+    if (num === 1) return 1
+    return num * faculty(num - 1)
 }
