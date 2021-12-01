@@ -1,4 +1,4 @@
-console.log(insertionSort([2,4,5,4,3,6,4,33,7,9,876,54,7,654,3]))
+// console.log(insertionSort([2,4,5,4,3,6,4,33,7,9,876,54,7,654,3]))
 
 function insertionSort(array) {
     for(let i = 1; i < array.length; i++) {
@@ -13,7 +13,7 @@ function insertionSort(array) {
     return array
 }
 
-console.log(recursiveSort([2,4,5,4,3,6,4,33,7,9,876,54,7,654,3]))
+// console.log(recursiveSort([2,4,5,4,3,6,4,33,7,9,876,54,7,654,3]))
 
 function recursiveSort(arr) {
     if (arr.length <= 1) return arr
@@ -35,4 +35,20 @@ function merge(left, right) {
     }
 
     return [...sortedArr, ...left, ...right];
+}
+
+getPrimesInRange(100)
+function getPrimesInRange(range) {
+    for (let i = 0; i <= range; i++) {
+        if (isPrime(i)) console.log(i)
+    }
+}
+
+function isPrime(num) {
+    let divisors = 0
+    for (let i = 0; i <= num; i++) {
+        if (num % i === 0) divisors++
+        if (divisors > 2) return false
+    }
+    return divisors === 2
 }
