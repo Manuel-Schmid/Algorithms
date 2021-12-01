@@ -37,7 +37,8 @@ function merge(left, right) {
     return [...sortedArr, ...left, ...right];
 }
 
-getPrimesInRange(100)
+// getPrimesInRange(100)
+
 function getPrimesInRange(range) {
     for (let i = 0; i <= range; i++) {
         if (isPrime(i)) console.log(i)
@@ -51,4 +52,11 @@ function isPrime(num) {
         if (divisors > 2) return false
     }
     return divisors === 2
+}
+
+console.log(isPalindrome('Tenet'))
+console.log(isPalindrome('Ben'))
+
+function isPalindrome(word) {
+    return word.toLowerCase().split('').join('') === word.toLowerCase().split('').reverse().join('')
 }
