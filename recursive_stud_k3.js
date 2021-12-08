@@ -65,9 +65,16 @@ function isPalindrome(word) {
 }
 
 function isPalindrome2(word) {
-    word = word.replace(/\s/g, '')
-    for (let i = 0; i < word.length/2; i++) {
-        if (word.charAt(i).toLowerCase() !== word.charAt(word.length-1-i).toLowerCase()) return false
-    }
+    word = word.replace(/\s/g, '').toLowerCase()
+    for (let i = 0; i < word.length/2; i++) if (word.charAt(i) !== word.charAt(word.length-1-i)) return false
     return true
 }
+
+// ggT(21, 14)
+
+function ggT(a, b) {
+    if (a === b) console.log(a)
+    else if (a > b) ggT(a-b, b)
+    else if (b > a) ggT(a, b-a)
+}
+
