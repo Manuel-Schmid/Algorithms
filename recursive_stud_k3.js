@@ -37,12 +37,14 @@ function merge(left, right) {
     return [...sortedArr, ...left, ...right];
 }
 
-// getPrimesInRange(100)
+// console.log(getPrimesInRange(100))
 
 function getPrimesInRange(range) {
+    let primes = []
     for (let i = 0; i <= range; i++) {
-        if (isPrime(i)) console.log(i)
+        if (isPrime(i)) primes.push(i)
     }
+    return primes
 }
 
 function isPrime(num) {
@@ -54,9 +56,18 @@ function isPrime(num) {
     return divisors === 2
 }
 
-console.log(isPalindrome('Tenet'))
-console.log(isPalindrome('Ben'))
+console.log(isPalindrome2('Tenet'))
+console.log(isPalindrome2('Ben'))
+console.log(isPalindrome2('Mr Owl ate my metal worm'))
 
 function isPalindrome(word) {
-    return word.toLowerCase().split('').join('') === word.toLowerCase().split('').reverse().join('')
+    return word.toLowerCase().replace(/\s/g, '').split('').join('') === word.toLowerCase().replace(/\s/g, '').split('').reverse().join('')
+}
+
+function isPalindrome2(word) {
+    word = word.replace(/\s/g, '')
+    for (let i = 0; i < word.length/2; i++) {
+        if (word.charAt(i).toLowerCase() !== word.charAt(word.length-1-i).toLowerCase()) return false
+    }
+    return true
 }
