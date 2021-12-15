@@ -78,6 +78,14 @@ function ggT(a, b) {
     else if (b > a) ggT(a, b-a)
 }
 
+console.log(linearSearch([3,5,4,45,6,86,54,67], 45))
+function linearSearch(values, key) {
+    for (let i = 0; i < values.length; i++) {
+        if (values[i] === key) return i
+    }
+    return -1
+}
+
 // console.log(getPrimefactors(24))
 function getPrimefactors(n) {
     let primefactors = []
