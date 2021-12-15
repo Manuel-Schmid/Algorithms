@@ -78,7 +78,7 @@ function ggT(a, b) {
     else if (b > a) ggT(a, b-a)
 }
 
-console.log(linearSearch([3,5,4,45,6,86,54,67], 45))
+// console.log(linearSearch([3,5,4,45,6,86,54,67], 45))
 function linearSearch(values, key) {
     for (let i = 0; i < values.length; i++) {
         if (values[i] === key) return i
@@ -86,6 +86,27 @@ function linearSearch(values, key) {
     return -1
 }
 
+const randomNumsArray = (Array.from({length: 100000}, () => Math.floor(Math.random() * 100000))).sort();
+// const randomNumsArray1 = [4,6,12,51,74,83,107,284,375,647];
+// console.log(randomNumsArray)
+
+const start = Date.now()
+console.log(binarySearch(randomNumsArray, 10003))
+console.log('Runtime: ' + (Date.now() - start) + 'ms')
+
+function binarySearch(values, key) {
+    let left = 0
+    let right = values.length-1
+    while (left <= right) {
+        let center = Math.round((left + right)/2)
+        if (values[center] === key) return center
+        else {
+            if (values[center] > key) right = center - 1
+            else left = center + 1
+        }
+    }
+    return -1
+}
 // console.log(getPrimefactors(24))
 function getPrimefactors(n) {
     let primefactors = []
