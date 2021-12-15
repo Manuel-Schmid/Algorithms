@@ -56,9 +56,9 @@ function isPrime(num) {
     return divisors === 2
 }
 
-console.log(isPalindrome2('Tenet'))
-console.log(isPalindrome2('Ben'))
-console.log(isPalindrome2('Mr Owl ate my metal worm'))
+// console.log(isPalindrome2('Tenet'))
+// console.log(isPalindrome2('Ben'))
+// console.log(isPalindrome2('Mr Owl ate my metal worm'))
 
 function isPalindrome(word) {
     return word.toLowerCase().replace(/\s/g, '').split('').join('') === word.toLowerCase().replace(/\s/g, '').split('').reverse().join('')
@@ -76,5 +76,21 @@ function ggT(a, b) {
     if (a === b) console.log(a)
     else if (a > b) ggT(a-b, b)
     else if (b > a) ggT(a, b-a)
+}
+
+// console.log(getPrimefactors(24))
+function getPrimefactors(n) {
+    let primefactors = []
+    let res = 1;
+    for (let i = 1; i <= n; i++) {
+        if (isPrime(i)) {
+            while (res * i <= n) {
+                res *= i
+                primefactors.push(i)
+                console.log(i + ":" +res)
+            }
+            if (res === n) return primefactors
+        }
+    }
 }
 
