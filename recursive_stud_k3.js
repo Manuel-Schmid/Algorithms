@@ -90,9 +90,13 @@ const randomNumsArray = (Array.from({length: 100000}, () => Math.floor(Math.rand
 // const randomNumsArray1 = [4,6,12,51,74,83,107,284,375,647];
 // console.log(randomNumsArray)
 
-const start = Date.now()
-console.log(binarySearch(randomNumsArray, 10003))
-console.log('Runtime: ' + (Date.now() - start) + 'ms')
+let start = Date.now()
+// console.log(linearSearch(randomNumsArray, 10003))
+// console.log('Linear Search Runtime: ' + (Date.now() - start) + 'ms');
+
+start = Date.now()
+// console.log(binarySearch(randomNumsArray, 10003))
+// console.log('Binary Search - Runtime: ' + (Date.now() - start) + 'ms');
 
 function binarySearch(values, key) {
     let left = 0
@@ -121,5 +125,22 @@ function getPrimefactors(n) {
             if (res === n) return primefactors
         }
     }
+}
+
+console.log(bubbleSort([21,43,45,62,54,23,45,794,872,67,8,17,23]))
+
+function bubbleSort(nums) {
+    let array = nums
+    for(let i = 0; i < array.length-1; i++) {
+        for(let j = 0; j < array.length-i-1; j++) {
+            if(array[j] > array[j+1]) {
+                let temp = array[j]
+                array[j] = array[j+1]
+                array[j+1] = temp
+                nums = array;
+            }
+        }
+    }
+    return array
 }
 
