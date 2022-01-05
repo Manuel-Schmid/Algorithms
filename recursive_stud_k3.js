@@ -127,19 +127,22 @@ function getPrimefactors(n) {
     }
 }
 
-console.log(bubbleSort([21,43,45,62,54,23,45,794,872,67,8,17,23]))
+console.log(bubbleSort([21,43,45,62,54,23,57,794,872,67,8,17,23]))
 
 function bubbleSort(nums) {
     let array = nums
     for(let i = 0; i < array.length-1; i++) {
+        let c = 0
         for(let j = 0; j < array.length-i-1; j++) {
             if(array[j] > array[j+1]) {
                 let temp = array[j]
                 array[j] = array[j+1]
                 array[j+1] = temp
                 nums = array;
+                c++
             }
         }
+        if (c === 0) return array;
     }
     return array
 }
