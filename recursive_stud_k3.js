@@ -96,13 +96,16 @@ let start = Date.now()
 
 start = Date.now()
 // console.log(binarySearch(randomNumsArray, 10003))
+// console.log(binarySearch1([21,43,45,62,54,23,57,794,87,67,8,17,23], 45))
 // console.log('Binary Search - Runtime: ' + (Date.now() - start) + 'ms');
+
+console.log(binarySearch([11,12,15,19,23,45,54,91,100], 45))
 
 function binarySearch(values, key) {
     let left = 0
     let right = values.length-1
     while (left <= right) {
-        let center = Math.round((left + right)/2)
+        let center = Math.floor((left + right)/2)
         if (values[center] === key) return center
         else {
             if (values[center] > key) right = center - 1
@@ -111,23 +114,9 @@ function binarySearch(values, key) {
     }
     return -1
 }
-// console.log(getPrimefactors(24))
-function getPrimefactors(n) {
-    let primefactors = []
-    let res = 1;
-    for (let i = 1; i <= n; i++) {
-        if (isPrime(i)) {
-            while (res * i <= n) {
-                res *= i
-                primefactors.push(i)
-                console.log(i + ":" +res)
-            }
-            if (res === n) return primefactors
-        }
-    }
-}
 
-console.log(bubbleSort([21,43,45,62,54,23,57,794,872,67,8,17,23]))
+
+// console.log(bubbleSort([21,43,45,62,54,23,57,794,872,67,8,17,23]))
 
 function bubbleSort(nums) {
     let array = nums
@@ -146,4 +135,3 @@ function bubbleSort(nums) {
     }
     return array
 }
-
