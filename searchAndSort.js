@@ -24,7 +24,7 @@ function binarySearch(values, key) {
     return -1
 }
 
-console.log(bubbleSort([21,43,45,62,54,23,57,794,872,67,8,17,23]))
+// console.log(bubbleSort([21,43,45,62,54,23,57,794,872,67,8,17,23]))
 
 function bubbleSort(array) {
     for(let i = 0; i < array.length-1; i++) {
@@ -79,9 +79,35 @@ function selectionSort(arr) {
     return arr
 }
 
+// let arr = [212,43,45,107,62,54,23,57,794,321,73,872,67,8,17,23]
+let arr = Array.from({length: 1000000}, () => Math.floor(Math.random() * 1000000));
 
 
+const start = Date.now();
+quickSort(0, arr.length-1)
+console.log(arr)
+console.log("Duration: " + (Date.now() - start) + " ms")
 
+function quickSort(left, right) {
+    if (left >= right) return
+    let i = left
+    let j = right
+    let mid = Math.floor(((left+right)/2))
+    let pivot = arr[mid]
+    while(i <= j) {
+        while (i<right && arr[i]<pivot) i++
+        while (j>left && pivot<arr[j]) j--
+        if (i<=j) {
+            let temp = arr[i]
+            arr[i] = arr[j]
+            arr[j] = temp
+            i++
+            j--
+        }
+    }
+    if (left < j) quickSort(left, j)
+    if (i < right) quickSort(i, right)
+}
 
 
 
